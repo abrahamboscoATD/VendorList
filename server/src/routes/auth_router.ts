@@ -1,9 +1,10 @@
-import { FastifyInstance, FastifyPluginOptions } from "fastify";
-import { login_controller, register_controller, verify_session_controller } from "../controller/auth.js";
+import { FastifyInstance } from "fastify";
+import { login_controller, register_controller, verify_token_controller } from "../controller/auth.js";
 
-export default function auth_router(fastify: FastifyInstance, opt: FastifyPluginOptions, done: (err?: Error) => void) {
+async function authRouter(fastify: FastifyInstance) {
   fastify.post("/login", login_controller);
   fastify.post("/register", register_controller);
-  fastify.get("/verify-session", verify_session_controller);
-  done();
+  fastify.get("/verify-token", verify_token_controller);
 }
+
+export default authRouter;
