@@ -1,5 +1,5 @@
 import { z } from "zod";
-import VendorModel from "../models/VendorModal";
+import VendorModel from "../models/VendorModal.js";
 
 export const vendor_validator = z.object({
   name: z

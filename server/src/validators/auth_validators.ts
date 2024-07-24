@@ -1,5 +1,5 @@
 import { z } from "zod";
-import UserModel from "../models/UserModel";
+import UserModel from "../models/UserModel.js";
 
 export const register_validator = z
   .object({
