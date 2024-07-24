@@ -1,9 +1,9 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { login_validator, register_validator } from "../validators/auth_validators";
-import UserModel from "../models/UserModel";
+import { login_validator, register_validator } from "../validators/auth_validators.js";
+import UserModel from "../models/UserModel.js";
 import bcrypt from "bcrypt";
-import { invalid_return, valid_return } from "../utils/api_return";
-import { jwt_sign, jwt_verify } from "../utils/jwt";
+import { invalid_return, valid_return } from "../utils/api_return.js";
+import { jwt_sign, jwt_verify } from "../utils/jwt.js";
 import { JsonWebTokenError } from "jsonwebtoken";
 
 export async function login_controller(req: FastifyRequest, rep: FastifyReply) {
