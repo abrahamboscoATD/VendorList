@@ -1,9 +1,9 @@
 import fastify from "fastify";
 import "dotenv/config";
-import logger from "./utils/logger";
-import connectRoutes from "./routes";
+import logger from "./utils/logger.js";
+import connectRoutes from "./routes/index.js";
 import mongoose from "mongoose";
-import { greenB, whiteB } from "./utils/text-colorize";
+import { greenB, whiteB } from "./utils/text-colorize.js";
 import fastifyCookie from "@fastify/cookie";
 import fastifyCors from "@fastify/cors";
 
@@ -12,16 +12,16 @@ const server = fastify({});
 const port = process.env.PORT || 8080;
 const MONGOOSE_URI = process.env.DB_URL || "";
 
-//Fastify Cors Plugin;
+// Fastify Cors Plugin
 server.register(fastifyCors);
 
-//Coockie plugin;
+// Cookie plugin
 server.register(fastifyCookie, {
   secret: "my-secret",
   hook: "onRequest",
 });
 
-//Database Connection;
+// Database Connection
 mongoose
   .connect(MONGOOSE_URI)
   .then(() => {
@@ -31,13 +31,13 @@ mongoose
     console.log(e);
   });
 
-//Adding HTTP Logger;
+// Adding HTTP Logger
 server.addHook("onResponse", logger);
 
-//Registering Routes as Plugin;
+// Registering Routes as Plugin
 connectRoutes(server);
 
-//Root Route;
+// Root Route
 server.get("/", async (request, reply) => {
   return reply.status(301).send("Hi, Don't worry I am working");
 });
