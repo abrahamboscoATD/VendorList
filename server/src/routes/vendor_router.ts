@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyPluginOptions } from "fastify";
-import { create_vendor_controller, delete_one_vendor_controller, get_all_vendor_controller, update_vendor_controller } from "../controller/vendor";
+import { create_vendor_controller, delete_one_vendor_controller, get_all_vendor_controller, update_vendor_controller } from "../controller/vendor.js";
 
 export default function vendor_router(fastify: FastifyInstance, opt: FastifyPluginOptions, done: (err?: Error) => void) {
   fastify.get("/get-all", get_all_vendor_controller);

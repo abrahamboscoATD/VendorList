@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyPluginOptions } from "fastify";
-import { login_controller, register_controller, verify_session_controller } from "../controller/auth";
+import { login_controller, register_controller, verify_session_controller } from "../controller/auth.js";
 
 export default function auth_router(fastify: FastifyInstance, opt: FastifyPluginOptions, done: (err?: Error) => void) {
   fastify.post("/login", login_controller);
