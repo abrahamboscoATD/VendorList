@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@iconify/svelte": "^3.1.6",
-    "@sveltejs/adapter-node": "^2.0.0", // Changed adapter to Node
+    "@sveltejs/adapter-node": "^2.0.0",
     "@sveltejs/kit": "^2.5.10",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@types/eslint": "^8.56.10",
