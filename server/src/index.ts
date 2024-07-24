@@ -1,4 +1,4 @@
-import fastify from "fastify";
+import fastify, { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import "dotenv/config";
 import logger from "./utils/logger.js";
 import connectRoutes from "./routes/index.js";
@@ -7,7 +7,7 @@ import { greenB, whiteB } from "./utils/text-colorize.js";
 import fastifyCookie from "@fastify/cookie";
 import fastifyCors from "@fastify/cors";
 
-const server = fastify({});
+const server: FastifyInstance = fastify({});
 
 const port = process.env.PORT || 8080;
 const MONGOOSE_URI = process.env.DB_URL || "";
@@ -27,7 +27,7 @@ mongoose
   .then(() => {
     console.log(whiteB(greenB("Database connected successfully")));
   })
-  .catch((e) => {
+  .catch((e: Error) => {
     console.log(e);
   });
 
@@ -38,7 +38,7 @@ server.addHook("onResponse", logger);
 connectRoutes(server);
 
 // Root Route
-server.get("/", async (request, reply) => {
+server.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
   return reply.status(301).send("Hi, Don't worry I am working");
 });
 
