@@ -1,12 +1,8 @@
-import { onResponseHookHandler, FastifyRequest, FastifyReply } from "fastify";
+import { FastifyReply, FastifyRequest } from "fastify";
 
-const logger: onResponseHookHandler = async (
-  req: FastifyRequest,
-  rep: FastifyReply,
-  done: () => void
-) => {
-  console.log(`${req.method} ${req.url}`);
-  done();
+const logger = async (req: FastifyRequest, rep: FastifyReply) => {
+  // Logging logic here
+  console.log(`${req.method} ${req.url} - ${rep.statusCode}`);
 };
 
 export default logger;
