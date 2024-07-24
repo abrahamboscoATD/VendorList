@@ -1,8 +1,8 @@
-import { FastifyInstance, FastifyPluginOptions } from "fastify";
-import auth_router from "./auth_router";
-import vendor_router from "./vendor_router";
-import application_router from "./application_router";
-import dashboard_router from "./dashboard_router";
+import { FastifyInstance } from "fastify";
+import auth_router from "./auth_router.js";
+import vendor_router from "./vendor_router.js";
+import application_router from "./application_router.js";
+import dashboard_router from "./dashboard_router.js";
 
 const routes = [
   {
