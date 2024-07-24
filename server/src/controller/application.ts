@@ -1,8 +1,8 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { invalid_return, valid_reply, valid_return } from "../utils/api_return";
-import { application_validator } from "../validators/application_validators";
+import { invalid_return, valid_reply, valid_return } from "../utils/api_return.js";
+import { application_validator } from "../validators/application_validators.js";
 import { ZodError } from "zod";
-import ApplicationListModel, { IApplicatonsList } from "../models/ApplicationModel";
+import ApplicationListModel, { IApplicatonsList } from "../models/ApplicationModel.js";
 import { FilterQuery, PopulateOption, PopulateOptions } from "mongoose";
 
 export async function add_one_application_controller(req: FastifyRequest, reply: FastifyReply) {
